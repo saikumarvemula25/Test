@@ -1,25 +1,30 @@
-import logo from './logo.svg';
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+import React, { Component } from "react";
+import { render, unmountComponentAtNode } from "react-dom";
+
+class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+    };
+  }
+
+  componentDidMount() {
+    navigator.geolocation.getCurrentPosition(function(position) {
+      console.log("steps challenge 1:", position.coords.latitude*100);
+      console.log("step challenge 2", position.coords.longitude*100);
+    });
+  }
+
+  render() {
+    return (
+      <div>
+        <h4></h4>
+      </div>
+    );
+  }
 }
 
-export default App;
+render(<App />, document.getElementById("root"));
